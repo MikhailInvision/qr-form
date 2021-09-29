@@ -1,0 +1,11 @@
+.big-container {
+	width: 100%;
+	padding: 10px;
+}
+.medium-container {
+	display: flex;
+	justify-content: center;
+}
+.small-container {
+	min-width: 100%;
+}
