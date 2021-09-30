@@ -1,36 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+
+require_once "readjson.php";
+
+?>
+<!doctype html>
+<html>
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title><?php echo ('Пропуск на конференцию ' . $data->firstName . $data->lastName . $data->date); ?></title>
+    <style>
+        .big-container 
+		{
+			width: 100%;
+			padding: 10px;
+			display: flex;
+			justify-content: center;
+		}
+		.medium-container 
+		{
+			display: flex;
+			justify-content: center;
+			max-width: 300px;
+		}
+		.small-container 
+		{
+			width: 600px;
+			min-height: 400px;
+			position: absolute;
+			top: 75%;                         
+		}
+		.pic
+		{
+			display: flex;
+			justify-content: center;
+			width: auto;
+		}
+		.main-text
+		{
+			display: flex;
+			justify-content: center;
+			text-align: center;
+			font-family: "tahoma";
+			font-weight: 600;
+			color: #2e2483;
+			font-size: 25px;
+			overflow-wrap: anywhere;
+		}
+    </style>
 </head>
 <body>
 
-<?php
-
-include_once "index.php";
-
-?>
-
 <div class="big-container">
-	<div class="medium-container">
-		<div class="small-container">
-			<p>
-				<?= $id ?>
+	<img src="picture-1.png" class="pic" alt="">
+		<div class="small-container" style="z-index:99999;">
+			<p class="main-text">
+				<?= $data->firstName ?>
 			</p>
-			<p>
-				<?= $firstname ?>
+			<p class="main-text">
+				<?= $data->lastName ?>
 			</p>
-			<p>
-				<?= $secondname ?>
+			<p class="main-text">
+				<?= $data->organisation ?>
 			</p>
-			<p>
-				<?= $position ?>
+			<p class="main-text">
+				<?= $data->specility ?>
+			</p>
+			<p class="main-text">
+				<?= $data->date ?>
 			</p>
 		</div>
-	</div>
 </div>
 
 
