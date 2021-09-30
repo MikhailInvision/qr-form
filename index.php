@@ -11,13 +11,18 @@
 <div>
 	<form action="writejson.php" method="POST">
 		<label for="firstname">Firstname:</label>
-		<input type="text" name="firstname" id="" style="margin-left: 18px;">
+		<input type="text" name="firstname" id="" style="margin-left: 18px;" required>
 		<br><br>
-		<label for="secondname">Secondname:</label>
-		<input type="text" name="secondname" id="">
+		<label for="secondname">Lastname:</label>
+		<input type="text" name="secondname" id="" style="margin-left: 20px;" required>
 		<br><br>
-		<label for="position">Position:</label>
-		<input type="text" name="position" id="" style="margin-left: 28px;">
+		<label for="organisation">Organisation:</label>
+		<input type="text" name="organisation" id="" required>
+		<br><br>
+		<label for="specility">Specility:</label>
+		<input type="text" name="specility" id="" style="margin-left: 27px;" required>
+		<br><br>
+		<button type="submit">-----</button>
 	</form>
 </div>
 

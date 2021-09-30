@@ -1,38 +1,56 @@
 <?php
 
 include_once "functions.php";
-
-// $json = file_get_contents('data.json');
-// $data = json_decode($json, true);
-
-$str = '{"firstName": "verylongfirstnamefortestingverylongfirstnamefortesting", "lastName": "verylonglastnamefortestingverylonglastnamefortesting", "organisation": "INVISION", "specility": "Doctor"}';
-
-$data = json_decode($str);
-
-$firstName = $data->firstName;
-$lastName = $data->lastName;
+$data = json_decode(file_get_contents('php://input'));
+session_start();
+$fName = $data->firstName;
+$lName = $data->lastName;
 $organisation = $data->organisation;
 $specility = $data->specility;
 $date = date('d.m.Y');
 
-if (!empty($firstName))
+if (!empty($fName))
 {
-	$firstName = prepare($firstname);
-} else echo "incorrect firstName";
+	$fName = prepare($fName);
+	$_SESSION["fName"] = $fName;
+} else
+	{
+		echo "incorrect firstName <br>";
+	} 
 
-if (!empty($lastName))
+if (!empty($lName))
 {
-	$lastName = prepare($lastName);
-} else echo "incorrect lastname";
+	$lName = prepare($lName);
+	$_SESSION["lName"] = $lName;
+} else 
+	{
+		echo "incorrect lastname <br>";
+	}
 
 if (!empty($organisation))
 {
 	$organisation = prepare($organisation);
-} else echo "incorrect organisation";
-
+	$_SESSION["organisation"] = $organisation;
+} else
+	{ 
+		echo "incorrect organisation <br>";
+	}
 if (!empty($specility))
 {
 	$specility = prepare($specility);
-} else echo "incorrect specility";
+	$_SESSION["specility"] = $specility;
+} else
+	{ 
+		echo "incorrect specility <br>";
+	}
+
+header('Location: page.php');
 
 ?>
+
+<div>
+	<p><?= $fName ?></p>
+	<p><?= $lName ?></p>
+	<p><?= $organisation ?></p>
+	<p><?= $specility ?></p>
+</div>

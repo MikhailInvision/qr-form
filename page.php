@@ -1,8 +1,17 @@
 <?php
 
-require_once "readjson.php";
+session_start();
+if (empty($_SESSION))
+{
+	//header('Location: index.php');
+	$_SESSION['fName'] = 'First Name';
+	$_SESSION['lName'] = 'Last Name';
+	$_SESSION['organisation'] = 'Organization of Test';
+	$_SESSION['specility'] = 'Doctor';
+	$_SESSION['date'] = date('d:m:Y');
+}
 
-?>
+$page = `
 <!doctype html>
 <html>
 <head>
@@ -10,7 +19,7 @@ require_once "readjson.php";
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title><?php echo ('Пропуск на конференцию ' . $data->firstName . $data->lastName . $data->date); ?></title>
+    <title>'Пропуск на конференцию ' . $data->firstName . $data->lastName . $data->date</title>
     <style>
         .big-container 
 		{
@@ -56,24 +65,33 @@ require_once "readjson.php";
 <div class="big-container">
 	<img src="picture-1.png" class="pic" alt="">
 		<div class="small-container" style="z-index:99999;">
-			<p class="main-text">
-				<?= $data->firstName ?>
-			</p>
-			<p class="main-text">
-				<?= $data->lastName ?>
-			</p>
-			<p class="main-text">
-				<?= $data->organisation ?>
-			</p>
-			<p class="main-text">
-				<?= $data->specility ?>
-			</p>
-			<p class="main-text">
-				<?= $data->date ?>
-			</p>
+			<p class="main-text"> ` . $_SESSION['fName'] . `</p>
+			<p class="main-text">` . $_SESSION['lName'] . `</p>
+			<p class="main-text">` . $_SESSION['organisation'] . `</p>
+			<p class="main-text">` . $_SESSION['specility'] . `</p>
+			<p class="main-text">` . $_SESSION['date'] . `</p>
 		</div>
 </div>
 
-
 </body>
-</html>
+</html>`;
+
+require_once 'dompdf/autoload.inc.php';
+
+// reference the Dompdf namespace
+use Dompdf\Dompdf;
+
+// instantiate and use the dompdf class
+$dompdf = new Dompdf();
+$dompdf->loadHtml($page);
+
+// (Optional) Setup the paper size and orientation
+$dompdf->setPaper(array(0, 0, 1048, 733), 'landscape');
+
+// Render the HTML as PDF
+$dompdf->render();
+
+// Output the generated PDF to Browser
+$dompdf->stream("test");
+session_abort();
+?>
