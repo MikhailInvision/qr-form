@@ -49,8 +49,8 @@ header('Location: page.php');
 ?>
 
 <div>
-	<p><?= $fName ?></p>
-	<p><?= $lName ?></p>
-	<p><?= $organisation ?></p>
-	<p><?= $specility ?></p>
+	<p><?= $_SESSION["fName"] ?></p>
+	<p><?= $_SESSION["lName"] ?></p>
+	<p><?= $_SESSION["organisation"] ?></p>
+	<p><?= $_SESSION["specility"] ?></p>
 </div>
