@@ -1,13 +1,17 @@
 <?php
 
 include_once "functions.php";
-$data = json_decode(file_get_contents('php://input'));
+//$data = json_decode(file_get_contents('php://input'));
+$json = file_get_contents('php://input');
+
+var_dump(json_decode($json));
+
 session_start();
 $fName = $data->firstName;
 $lName = $data->lastName;
 $organisation = $data->organisation;
 $specility = $data->specility;
-$_SESSION["date"] = date('d.m.Y'); 
+$date = date('d.m.Y');
 
 if (!empty($fName))
 {
@@ -44,13 +48,13 @@ if (!empty($specility))
 		echo "incorrect specility <br>";
 	}
 
-header('Location: page.php');
+//header('Location: page.php');
 
 ?>
 
 <div>
-	<p><?= $_SESSION["fName"] ?></p>
-	<p><?= $_SESSION["lName"] ?></p>
-	<p><?= $_SESSION["organisation"] ?></p>
-	<p><?= $_SESSION["specility"] ?></p>
+	<p><?= $fName ?></p>
+	<p><?= $lName ?></p>
+	<p><?= $organisation ?></p>
+	<p><?= $specility ?></p>
 </div>

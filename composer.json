@@ -1,5 +1,6 @@
 {
 	"require": {
-		"dompdf/dompdf": "dev-master"
+		"dompdf/dompdf": "1.0.2",
+		"anam/phantommagick" : "1.0.2"
 	}
 }

@@ -1,9 +1,9 @@
 <?php
 
-require_once 'dompdf/autoload.inc.php';
+require_once 'vendor/autoload.php';
 session_start();
 
-if (isset($_SESSION))
+if (empty($_SESSION))
 {
 	header('Location: index.php');
 
@@ -25,7 +25,7 @@ ob_start();
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Пропуск на конференцию <?= $_SESSION['fName'] ?> <?= $_SESSION['lName'] ?></title>
     <style>
-        .big-container 
+        .big-container
 		{
 			width: 100%;
 			display: flex;
@@ -39,18 +39,27 @@ ob_start();
 			top: 39%;
 			left: 12.5%;                        
 		}
+		@font-face
+		{
+			font-family: 'Tondo';
+			src: url("assets/fonts/glyphicons-halflings-regular.ttf");
+			font-weight: normal;
+		}
 		.main-text
 		{
 			display: flex;
 			justify-content: center;
 			text-align: center;
-			font-family: "tahoma";
+			font-family: "Roboto";
 			font-weight: 600;
 			color: #2e2483;
 			font-size: 28px;
 			overflow-wrap: anywhere;
 		}
-		@page { margin: 0px; }
+		@page 
+		{ 
+			margin: 0px;
+		}
 		body
 		{	
 			margin: 0px;
@@ -69,7 +78,6 @@ ob_start();
 		<div class="main-text"> <?= $_SESSION['lName'] ?></div><br><br>
 		<div class="main-text"> <?= $_SESSION['organisation'] ?></div><br><br>
 		<div class="main-text"> <?= $_SESSION['specility'] ?></div><br><br>
-		<!-- <p class="main-text"> <?= $_SESSION['date'] ?></p> -->
 	</div>
 </div>
 
@@ -85,7 +93,13 @@ $dompdf = new Dompdf();
 $dompdf->loadHtml($page);
 $dompdf->setPaper("A4", 'portrait');
 $dompdf->render();
-$dompdf->stream("Пропуск на конференцию " . $_SESSION['fName'] . " " . $_SESSION['lName']);
+$dompdf->stream("_Conference pass " . $_SESSION['fName'] . " " . $_SESSION['lName'] . "_");
+$output = $dompdf->output();
+file_put_contents("_Conference pass " . $_SESSION['fName'] . " " . $_SESSION['lName'] . "_.pdf", $output);
+
+$pdf = "_Conference pass " . $_SESSION['fName'] . " " . $_SESSION['lName'] . "_.pdf"; 
+$save = "_Conference pass " . $_SESSION['fName'] . " " . $_SESSION['lName'] . "_.jpg"; 
+exec('convert -density 800 "'.$pdf.'" -colorspace RGB -resize 733 "'.$save.'"', $output, $return_var);
 
 session_unset();
 ?>
