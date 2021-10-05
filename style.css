@@ -1,0 +1,58 @@
+.big-container
+{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.medium-container
+{
+    width: 733px; 
+    margin-left: -0.5px;
+    background-color: #a39bca;
+    margin-top: -10px;
+    min-height: 50px;
+}
+.small-container 
+{
+    width: 600px;
+    min-height: 400px;
+    position: absolute;
+    top: 410px;                   
+}
+.main-text
+{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-family: "Helvetica";
+    font-weight: 600;
+    color: #2e2483;
+    font-size: 28px;
+    overflow-wrap: anywhere;
+}
+@page 
+{ 
+    margin: 0px;
+}
+.picture
+{
+    display: flex;
+    justify-content: center;
+}
+.buttons
+{
+    display: flex;
+    justify-content: space-between;
+    font-family: "Helvetica";
+    font-weight: 600;
+	font-size: 28px;
+    color: #2e2483;
+    padding: 7px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+.buttons:hover
+{
+    color: #fff;
+    background-color: #2e2483;
+}

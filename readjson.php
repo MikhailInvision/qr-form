@@ -1,6 +1,6 @@
 <?php
 
-include_once "functions.php";
+require_once "functions.php";
 $data = json_decode(file_get_contents('php://input'));
 session_start();
 $fName = $data->firstName;
@@ -47,10 +47,3 @@ if (!empty($specility))
 header('Location: page.php');
 
 ?>
-
-<div>
-	<p><?= $_SESSION["fName"] ?></p>
-	<p><?= $_SESSION["lName"] ?></p>
-	<p><?= $_SESSION["organisation"] ?></p>
-	<p><?= $_SESSION["specility"] ?></p>
-</div>

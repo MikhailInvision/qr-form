@@ -39,18 +39,13 @@ ob_start();
 			top: 39%;
 			left: 12.5%;                        
 		}
-		@font-face
-		{
-			font-family: 'Tondo';
-			src: url("assets/fonts/glyphicons-halflings-regular.ttf");
-			font-weight: normal;
-		}
 		.main-text
 		{
 			display: flex;
 			justify-content: center;
 			text-align: center;
-			font-family: "Roboto";
+			font-family: "HelveticaBold";
+			src: "HelveticaBold.ttf";
 			font-weight: 600;
 			color: #2e2483;
 			font-size: 28px;
@@ -93,13 +88,13 @@ $dompdf = new Dompdf();
 $dompdf->loadHtml($page);
 $dompdf->setPaper("A4", 'portrait');
 $dompdf->render();
-$dompdf->stream("_Conference pass " . $_SESSION['fName'] . " " . $_SESSION['lName'] . "_");
+//$dompdf->stream("_Conference pass " . $_SESSION['fName'] . " " . $_SESSION['lName'] . "_");
 $output = $dompdf->output();
-file_put_contents("_Conference pass " . $_SESSION['fName'] . " " . $_SESSION['lName'] . "_.pdf", $output);
+file_put_contents("invitations/_Conference pass " . $_SESSION['fName'] . " " . $_SESSION['lName'] . "_.pdf", $output);
 
-$pdf = "_Conference pass " . $_SESSION['fName'] . " " . $_SESSION['lName'] . "_.pdf"; 
-$save = "_Conference pass " . $_SESSION['fName'] . " " . $_SESSION['lName'] . "_.jpg"; 
+$pdf = "invitations/_Conference pass " . $_SESSION['fName'] . " " . $_SESSION['lName'] . "_.pdf"; 
+$save = "invitations/_Conference pass " . $_SESSION['fName'] . " " . $_SESSION['lName'] . "_.jpg"; 
 exec('convert -density 800 "'.$pdf.'" -colorspace RGB -resize 733 "'.$save.'"', $output, $return_var);
 
-session_unset();
+header("Location: choose.php");
 ?>
