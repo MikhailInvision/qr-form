@@ -14,6 +14,7 @@ if (empty($_SESSION))
 	// $_SESSION['date'] = date('d:m:Y');
 }
 
+//создание html страницы для конвертации в pdf
 ob_start();
 ?>
 <!doctype html>
@@ -81,6 +82,7 @@ ob_start();
 
 $page = ob_get_clean();
 
+//Создание pdf файла
 use Dompdf\Dompdf;
 $dompdf = new Dompdf();	
 $dompdf->loadHtml($page);
@@ -90,9 +92,30 @@ $dompdf->render();
 $output = $dompdf->output();
 file_put_contents("invitations/_Conference pass " . $_SESSION['fName'] . " " . $_SESSION['lName'] . "_.pdf", $output);
 
+//Создание jpg файла
 $pdf = "invitations/_Conference pass " . $_SESSION['fName'] . " " . $_SESSION['lName'] . "_.pdf"; 
 $save = "invitations/_Conference pass " . $_SESSION['fName'] . " " . $_SESSION['lName'] . "_.jpg"; 
 exec('convert -density 800 "'.$pdf.'" -colorspace RGB -resize 733 "'.$save.'"', $output, $return_var);
+
+//Запись о регистрации в excel файл
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
+$spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load("Registered.xlsx");
+$sheet = $spreadsheet->getActiveSheet();
+
+$registeredNumber = file_get_contents("registeredcounter.txt") + 1;
+file_put_contents("registeredcounter.txt", $registeredNumber);
+
+$sheet->setCellValue('A' . $registeredNumber, $registeredNumber);
+$sheet->setCellValue('B' . $registeredNumber, $_SESSION["fName"]);
+$sheet->setCellValue('C' . $registeredNumber, $_SESSION["lName"]);
+$sheet->setCellValue('D' . $registeredNumber, $_SESSION["organisation"]);
+$sheet->setCellValue('E' . $registeredNumber, $_SESSION["specility"]);
+$sheet->setCellValue('F' . $registeredNumber, $_SESSION["date"]);
+
+$writer = new Xlsx($spreadsheet);
+$writer->save('Registered.xlsx');
 
 header("Location: choose.php");
 ?>

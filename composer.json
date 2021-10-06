@@ -5,6 +5,7 @@
 		"ext-dom": "*",
         "ext-mbstring": "*",
         "phenx/php-font-lib": "^0.5.2",
-        "phenx/php-svg-lib": "^0.3.3"
+        "phenx/php-svg-lib": "^0.3.3",
+		"phpoffice/phpspreadsheet": "^1.18"
 	}
 }
