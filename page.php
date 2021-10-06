@@ -39,19 +39,13 @@ ob_start();
 			top: 39%;
 			left: 12.5%;                        
 		}
-		@font-face {
-			font-family: 'Open Sans';
-			src: url(http://themes.googleusercontent.com/static/fonts/opensans/v8/cJZKeOuBrn4kERxqtaUH3aCWcynf_cDxXwCLxiixG1c.ttf) format('truetype');
-		}
 		.main-text
 		{
 			display: flex;
 			justify-content: center;
 			text-align: center;
-			font-weight: 600;
-			color: #2e2483;
-			font-family: Arial, Helvetica, sans-serif;
 			font-size: 28px;
+			color: #2e2483;
 			overflow-wrap: anywhere;
 		}
 		@page 
@@ -61,6 +55,8 @@ ob_start();
 		body
 		{	
 			font-family: Arial, Helvetica, sans-serif;
+			font-style: normal;
+			font-weight: bold;
 			margin: 0px;
 			background-size: 100%;
     		background-position: 0% 0%;
@@ -70,7 +66,6 @@ ob_start();
     </style>
 </head>
 <body>
-
 <div class="big-container">
 	<div class="small-container" style="z-index:99999;">
 		<div class="main-text"> <?= $_SESSION['fName'] ?></div><br><br>
@@ -79,7 +74,6 @@ ob_start();
 		<div class="main-text"> <?= $_SESSION['specility'] ?></div><br><br>
 	</div>
 </div>
-
 </body>
 </html>
 
