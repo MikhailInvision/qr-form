@@ -24,7 +24,7 @@ ob_start();
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Пропуск на конференцию <?= $_SESSION['fName'] ?> <?= $_SESSION['lName'] ?></title>
-    <style>
+    <style type="text/css">
         .big-container
 		{
 			width: 100%;
@@ -39,15 +39,18 @@ ob_start();
 			top: 39%;
 			left: 12.5%;                        
 		}
+		@font-face {
+			font-family: 'Open Sans';
+			src: url(http://themes.googleusercontent.com/static/fonts/opensans/v8/cJZKeOuBrn4kERxqtaUH3aCWcynf_cDxXwCLxiixG1c.ttf) format('truetype');
+		}
 		.main-text
 		{
 			display: flex;
 			justify-content: center;
 			text-align: center;
-			font-family: "HelveticaBold";
-			src: "HelveticaBold.ttf";
 			font-weight: 600;
 			color: #2e2483;
+			font-family: Arial, Helvetica, sans-serif;
 			font-size: 28px;
 			overflow-wrap: anywhere;
 		}
@@ -57,6 +60,7 @@ ob_start();
 		}
 		body
 		{	
+			font-family: Arial, Helvetica, sans-serif;
 			margin: 0px;
 			background-size: 100%;
     		background-position: 0% 0%;

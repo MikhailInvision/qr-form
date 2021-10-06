@@ -16,6 +16,7 @@ if (empty($_SESSION))
 {
 	header('Location: index.php');
 }
+
 if ($_GET["choose"] == "jpg")
 {
     file_download("invitations/_Conference pass " . $_SESSION['fName'] . " " . $_SESSION['lName'] . "_.jpg");

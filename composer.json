@@ -1,6 +1,10 @@
 {
 	"require": {
 		"dompdf/dompdf": "1.0.2",
-		"anam/phantommagick" : "1.0.2"
+		"anam/phantommagick" : "1.0.2",
+		"ext-dom": "*",
+        "ext-mbstring": "*",
+        "phenx/php-font-lib": "^0.5.2",
+        "phenx/php-svg-lib": "^0.3.3"
 	}
 }

@@ -9,7 +9,14 @@ class ComposerStaticInit088ed17e7cd8c013a5637de0444dcc65
     public static $prefixLengthsPsr4 = array (
         'S' => 
         array (
+            'Symfony\\Component\\EventDispatcher\\' => 34,
             'Svg\\' => 4,
+        ),
+        'L' => 
+        array (
+            'League\\MimeTypeDetection\\' => 25,
+            'League\\Flysystem\\AwsS3v2\\' => 25,
+            'League\\Flysystem\\' => 17,
         ),
         'F' => 
         array (
@@ -19,12 +26,32 @@ class ComposerStaticInit088ed17e7cd8c013a5637de0444dcc65
         array (
             'Dompdf\\' => 7,
         ),
+        'A' => 
+        array (
+            'Anam\\PhantomMagick\\' => 19,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Symfony\\Component\\EventDispatcher\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/event-dispatcher',
+        ),
         'Svg\\' => 
         array (
             0 => __DIR__ . '/..' . '/phenx/php-svg-lib/src/Svg',
+        ),
+        'League\\MimeTypeDetection\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/mime-type-detection/src',
+        ),
+        'League\\Flysystem\\AwsS3v2\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/flysystem-aws-s3-v2/src',
+        ),
+        'League\\Flysystem\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/flysystem/src',
         ),
         'FontLib\\' => 
         array (
@@ -34,6 +61,10 @@ class ComposerStaticInit088ed17e7cd8c013a5637de0444dcc65
         array (
             0 => __DIR__ . '/..' . '/dompdf/dompdf/src',
         ),
+        'Anam\\PhantomMagick\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/anam/phantommagick/src',
+        ),
     );
 
     public static $prefixesPsr0 = array (
@@ -42,6 +73,24 @@ class ComposerStaticInit088ed17e7cd8c013a5637de0444dcc65
             'Sabberworm\\CSS' => 
             array (
                 0 => __DIR__ . '/..' . '/sabberworm/php-css-parser/lib',
+            ),
+        ),
+        'G' => 
+        array (
+            'Guzzle\\Tests' => 
+            array (
+                0 => __DIR__ . '/..' . '/guzzle/guzzle/tests',
+            ),
+            'Guzzle' => 
+            array (
+                0 => __DIR__ . '/..' . '/guzzle/guzzle/src',
+            ),
+        ),
+        'A' => 
+        array (
+            'Aws' => 
+            array (
+                0 => __DIR__ . '/..' . '/aws/aws-sdk-php/src',
             ),
         ),
     );
