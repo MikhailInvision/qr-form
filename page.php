@@ -1,18 +1,57 @@
 <?php
 session_start();
 require_once 'vendor/autoload.php';
+require_once "functions.php";
 
+$fName = $_GET["firstName"];
+$lName = $_GET["lastName"];
+$organisation = $_GET["organisation"];
+$specility = $_GET["specility"];
+$_SESSION["date"] = date('d.m.Y'); 
 
-if (empty($_SESSION))
+$answer = ['result' => 'true', 'errors' => []];
+
+if (!empty($fName))
 {
-	//header('Location: index.php');
+	$fName = prepare($fName);
+	$_SESSION["fName"] = $fName;
+} else
+	{
+		$answer['result'] = false;
+		$answer['errors']['firstName'] = 'Firstname error';
+	} 
 
-	$_SESSION['fName'] = 'First Name';
-	$_SESSION['lName'] = 'Last Name';
-	$_SESSION['organisation'] = 'Organization';
-	$_SESSION['specility'] = 'Doctor';
-	$_SESSION['date'] = date('d:m:Y');
-}
+if (!empty($lName))
+{
+	$lName = prepare($lName);
+	$_SESSION["lName"] = $lName;
+} else 
+	{
+		$answer['result'] = false;
+		$answer['errors']['lastName'] = 'Lastname error';
+	}
+
+if (!empty($organisation))
+{
+	$organisation = prepare($organisation);
+	$_SESSION["organisation"] = $organisation;
+} else
+	{ 
+		$answer['result'] = false;
+		$answer['errors']['organization'] = 'Organization error';
+	}
+if (!empty($specility))
+{
+	$specility = prepare($specility);
+	$_SESSION["specility"] = $specility;
+} else
+	{ 
+		$answer['result'] = false;
+		$answer['errors']['specility'] = 'Specility error';
+	}
+
+header('Content-Type: application/json');
+echo json_encode($answer, true);
 
 //создание html страницы для конвертации в pdf
 ob_start();
