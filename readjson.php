@@ -9,7 +9,7 @@ $organisation = $data->organisation;
 $specility = $data->specility;
 $_SESSION["date"] = date('d.m.Y'); 
 
-$answer = ['resault' => 'true', 'errors' => []];
+$answer = ['result' => 'true', 'errors' => []];
 
 if (!empty($fName))
 {
@@ -17,7 +17,7 @@ if (!empty($fName))
 	$_SESSION["fName"] = $fName;
 } else
 	{
-		$answer['resault'] = false;
+		$answer['result'] = false;
 		$answer['errors']['firstName'] = 'Firstname error';
 	} 
 
@@ -27,7 +27,7 @@ if (!empty($lName))
 	$_SESSION["lName"] = $lName;
 } else 
 	{
-		$answer['resault'] = false;
+		$answer['result'] = false;
 		$answer['errors']['lastName'] = 'Lastname error';
 	}
 
@@ -37,7 +37,7 @@ if (!empty($organisation))
 	$_SESSION["organisation"] = $organisation;
 } else
 	{ 
-		$answer['resault'] = false;
+		$answer['result'] = false;
 		$answer['errors']['organization'] = 'Organization error';
 	}
 if (!empty($specility))
@@ -46,7 +46,7 @@ if (!empty($specility))
 	$_SESSION["specility"] = $specility;
 } else
 	{ 
-		$answer['resault'] = false;
+		$answer['result'] = false;
 		$answer['errors']['specility'] = 'Specility error';
 	}
 
