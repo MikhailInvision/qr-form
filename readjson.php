@@ -9,13 +9,16 @@ $organisation = $data->organisation;
 $specility = $data->specility;
 $_SESSION["date"] = date('d.m.Y'); 
 
+$answer = ['resault' => 'true', 'errors' => []];
+
 if (!empty($fName))
 {
 	$fName = prepare($fName);
 	$_SESSION["fName"] = $fName;
 } else
 	{
-		echo "incorrect firstName <br>";
+		$answer['resault'] = false;
+		$answer['errors']['firstName'] = 'Firstname error';
 	} 
 
 if (!empty($lName))
@@ -24,7 +27,8 @@ if (!empty($lName))
 	$_SESSION["lName"] = $lName;
 } else 
 	{
-		echo "incorrect lastname <br>";
+		$answer['resault'] = false;
+		$answer['errors']['lastName'] = 'Lastname error';
 	}
 
 if (!empty($organisation))
@@ -33,7 +37,8 @@ if (!empty($organisation))
 	$_SESSION["organisation"] = $organisation;
 } else
 	{ 
-		echo "incorrect organisation <br>";
+		$answer['resault'] = false;
+		$answer['errors']['organization'] = 'Organization error';
 	}
 if (!empty($specility))
 {
@@ -41,8 +46,13 @@ if (!empty($specility))
 	$_SESSION["specility"] = $specility;
 } else
 	{ 
-		echo "incorrect specility <br>";
+		$answer['resault'] = false;
+		$answer['errors']['specility'] = 'Specility error';
 	}
+
+header('Content-Type: application/json');
+echo json_encode($answer, true);
+
 
 header('Location: page.php');
 

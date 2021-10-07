@@ -47,7 +47,10 @@ ob_start();
 			text-align: center;
 			font-size: 28px;
 			color: #2e2483;
-			overflow-wrap: anywhere;
+			max-width: 600px;
+			/* white-space: pre-line; */
+			word-wrap: break-all;
+			/* overflow-wrap: anywhere; */
 		}
 		@page 
 		{ 
@@ -55,7 +58,8 @@ ob_start();
 		}
 		body
 		{	
-			font-family: Arial, Helvetica, sans-serif;
+			/* font-family: Arial, Helvetica, sans-serif; */
+			font-family: DejaVu Sans;
 			font-style: normal;
 			font-weight: bold;
 			margin: 0px;
