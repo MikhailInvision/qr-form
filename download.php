@@ -5,7 +5,7 @@ require_once "functions.php";
 
 if (empty($_SESSION))
 {
-	header('Location: index.php');
+	header('Location:/');
 }
 
 if ($_GET["choose"] == "jpg")
