@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+require_once "functions.php";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +14,6 @@
 </head>
 <body>
 <?php
-
-require_once "functions.php";
-session_start();
 
 if (empty($_SESSION))
 {

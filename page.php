@@ -1,17 +1,17 @@
 <?php
-
-require_once 'vendor/autoload.php';
 session_start();
+require_once 'vendor/autoload.php';
+
 
 if (empty($_SESSION))
 {
-	header('Location: index.php');
+	//header('Location: index.php');
 
-	// $_SESSION['fName'] = 'First Name';
-	// $_SESSION['lName'] = 'Last Name';
-	// $_SESSION['organisation'] = 'Organization';
-	// $_SESSION['specility'] = 'Doctor';
-	// $_SESSION['date'] = date('d:m:Y');
+	$_SESSION['fName'] = 'First Name';
+	$_SESSION['lName'] = 'Last Name';
+	$_SESSION['organisation'] = 'Organization';
+	$_SESSION['specility'] = 'Doctor';
+	$_SESSION['date'] = date('d:m:Y');
 }
 
 //создание html страницы для конвертации в pdf

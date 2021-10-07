@@ -1,8 +1,9 @@
 <?php
+session_start();
 
 require_once "functions.php";
 $data = json_decode(file_get_contents('php://input'));
-session_start();
+
 $fName = $data->firstName;
 $lName = $data->lastName;
 $organisation = $data->organisation;
