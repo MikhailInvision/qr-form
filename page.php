@@ -101,11 +101,11 @@ exec('convert -density 800 "'.$pdf.'" -colorspace RGB -resize 733 "'.$save.'"', 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
-$spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load("Registered.xlsx");
+$spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load("reginfo/Registered.xlsx");
 $sheet = $spreadsheet->getActiveSheet();
 
-$registeredNumber = file_get_contents("registeredcounter.txt") + 1;
-file_put_contents("registeredcounter.txt", $registeredNumber);
+$registeredNumber = file_get_contents("reginfo/registeredcounter.txt") + 1;
+file_put_contents("reginfo/registeredcounter.txt", $registeredNumber);
 
 $sheet->setCellValue('A' . $registeredNumber, $registeredNumber);
 $sheet->setCellValue('B' . $registeredNumber, $_SESSION["fName"]);
@@ -115,7 +115,7 @@ $sheet->setCellValue('E' . $registeredNumber, $_SESSION["specility"]);
 $sheet->setCellValue('F' . $registeredNumber, $_SESSION["date"]);
 
 $writer = new Xlsx($spreadsheet);
-$writer->save('Registered.xlsx');
+$writer->save('reginfo/Registered.xlsx');
 
 header("Location: choose.php");
 ?>
