@@ -48,9 +48,9 @@ ob_start();
 			font-size: 28px;
 			color: #2e2483;
 			max-width: 600px;
-			/* white-space: pre-line; */
+			white-space: pre-line;
 			word-wrap: break-all;
-			/* overflow-wrap: anywhere; */
+			overflow-wrap: anywhere;
 		}
 		@page 
 		{ 

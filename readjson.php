@@ -2,12 +2,11 @@
 session_start();
 
 require_once "functions.php";
-$data = json_decode(file_get_contents('php://input'));
 
-$fName = $data->firstName;
-$lName = $data->lastName;
-$organisation = $data->organisation;
-$specility = $data->specility;
+$fName = $_GET["firstName"];
+$lName = $_GET["lastName"];
+$organisation = $_GET["organisation"];
+$specility = $_GET["specility"];
 $_SESSION["date"] = date('d.m.Y'); 
 
 $answer = ['result' => 'true', 'errors' => []];
@@ -54,6 +53,6 @@ if (!empty($specility))
 header('Content-Type: application/json');
 echo json_encode($answer, true);
 
-//header('Location: page.php');
+header('Location: page.php');
 
 ?>
