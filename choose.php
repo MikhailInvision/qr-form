@@ -21,18 +21,18 @@ if (empty($_SESSION))
 ?>
 
 <div class="big-container">
-    <img src="picture1.png">
-	<div class="small-container" style="z-index:99999;">
-		<div class="main-text"> <?= $_SESSION['fName'] ?></div><br><br>
-		<div class="main-text"> <?= $_SESSION['lName'] ?></div><br><br>
-		<div class="main-text"> <?= $_SESSION['organisation'] ?></div><br><br>
-		<div class="main-text"> <?= $_SESSION['specility'] ?></div><br><br>
+    <img    class="picture" src="picture1.png">
+	<div class="small-container picture" style="z-index:99999;">
+		<div class="main-text"> <?= $_SESSION['fName'] ?></div><br>
+		<div class="main-text"> <?= $_SESSION['lName'] ?></div><br>
+		<div class="main-text"> <?= $_SESSION['organisation'] ?></div><br>
+		<div class="main-text"> <?= $_SESSION['specility'] ?></div><br>
 	</div>
 </div>
 <div class="big-container">
 <div class="medium-container">
     <form style="display: flex; justify-content: center;">
-        <a class="buttons" style="margin-right: 100px;" href="download.php?choose=pdf">Скачать PDF</a>
+        <a class="buttons margin-button" href="download.php?choose=pdf">Скачать PDF</a>
         <a class="buttons" href="download.php?choose=jpg" target="_blank">Скачать JPG</a>
     </form>
 </div>

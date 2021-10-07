@@ -30,6 +30,7 @@
     color: #2e2483;
     font-size: 28px;
     overflow-wrap: anywhere;
+    margin-bottom: 35px;
 }
 @page 
 { 
@@ -37,8 +38,7 @@
 }
 .picture
 {
-    display: flex;
-    justify-content: center;
+    max-width: 100%;
 }
 .buttons
 {
@@ -56,4 +56,96 @@
 {
     color: #fff;
     background-color: #2e2483;
+}
+.margin-button
+{
+    margin-right: 100px;
+}
+@media (min-width:319px) {
+    .main-text
+    {
+        font-size: 13px;
+        margin-bottom: 0px;
+    }
+    .small-container 
+    {
+        top: 175px;
+    }
+    .buttons
+    {
+        font-size: 13px;
+    }
+    .margin-button
+    {
+        margin-right: 55px;
+    }
+}
+@media (min-width:340px) {
+    .small-container 
+    {
+        top: 190px;
+    }
+}
+@media (min-width:374px) {
+    .main-text
+    {
+        font-size: 15px;
+        margin-bottom: 0px;
+    }
+    .small-container 
+    {
+        top: 220px;
+    }
+    .buttons
+    {
+        font-size: 15px;
+    }
+    .margin-button
+    {
+        margin-right: 55px;
+    }
+}
+@media (min-width:424px) {
+    .main-text
+    {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    .small-container 
+    {
+        top: 240px;
+    }
+    .buttons
+    {
+        font-size: 16px;
+    }
+    .margin-button
+    {
+        margin-right: 55px;
+    }
+}
+@media (min-width:479px) {
+    .small-container 
+    {
+        top: 270px;
+    }
+}
+@media (min-width:767px) {
+    .main-text
+    {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+    .small-container 
+    {
+        top: 410px;
+    }
+    .buttons
+    {
+        font-size: 28px;
+    }
+    .margin-button
+    {
+        margin-right: 100px;
+    }
 }

@@ -53,7 +53,6 @@ if (!empty($specility))
 header('Content-Type: application/json');
 echo json_encode($answer, true);
 
-
-header('Location: page.php');
+//header('Location: page.php');
 
 ?>
