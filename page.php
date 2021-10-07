@@ -9,8 +9,6 @@ $organisation = $_GET["organisation"];
 $specility = $_GET["specility"];
 $_SESSION["date"] = date('d.m.Y'); 
 
-$answer = ['result' => 'true', 'errors' => []];
-
 if (!empty($fName))
 {
 	$fName = prepare($fName);
@@ -50,9 +48,6 @@ if (!empty($specility))
 		$answer['errors']['specility'] = 'Specility error';
 	}
 
-header('Content-Type: application/json');
-echo json_encode($answer, true);
-
 //создание html страницы для конвертации в pdf
 ob_start();
 ?>
@@ -87,9 +82,7 @@ ob_start();
 			font-size: 28px;
 			color: #2e2483;
 			max-width: 600px;
-			white-space: pre-line;
-			word-wrap: break-all;
-			overflow-wrap: anywhere;
+			overflow-wrap: auto;
 		}
 		@page 
 		{ 

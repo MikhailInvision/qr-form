@@ -19,6 +19,5 @@ if ($_GET["choose"] == "jpg")
                 echo "<br>Что-то пошло не так, попробуйте снова<br>";
                 echo "<br>Something went wrong, please try again<br>";
             }
-session_unset();
 
 ?>
