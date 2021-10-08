@@ -63,26 +63,22 @@ ob_start();
         .big-container
 		{
 			width: 100%;
-			display: flex;
-			justify-content: center;
+			margin-top: 400px;
 		}
 		.small-container 
 		{
 			width: 600px;
 			min-height: 400px;
-			position: absolute;
-			top: 39%;
-			left: 12.5%;                        
+			left: 12.5%;
+			margin: auto;                        
 		}
 		.main-text
 		{
-			display: flex;
-			justify-content: center;
 			text-align: center;
 			font-size: 28px;
 			color: #2e2483;
 			max-width: 600px;
-			overflow-wrap: auto;
+			word-break: break-all;
 		}
 		@page 
 		{ 
@@ -105,10 +101,10 @@ ob_start();
 <body>
 <div class="big-container">
 	<div class="small-container" style="z-index:99999;">
-		<div class="main-text"> <?= $_SESSION['fName'] ?></div><br><br>
-		<div class="main-text"> <?= $_SESSION['lName'] ?></div><br><br>
-		<div class="main-text"> <?= $_SESSION['organisation'] ?></div><br><br>
-		<div class="main-text"> <?= $_SESSION['specility'] ?></div><br><br>
+		<p class="main-text"> <?= $_SESSION['fName'] ?></p>
+		<p class="main-text"> <?= $_SESSION['lName'] ?></p>
+		<p class="main-text"> <?= $_SESSION['organisation'] ?></p>
+		<p class="main-text"> <?= $_SESSION['specility'] ?></p>
 	</div>
 </div>
 </body>
@@ -134,6 +130,7 @@ $save = "invitations/_Conference pass " . $_SESSION['fName'] . " " . $_SESSION['
 exec('convert -density 800 "'.$pdf.'" -colorspace RGB -resize 733 "'.$save.'"', $output, $return_var);
 
 //Запись о регистрации в excel файл
+
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
