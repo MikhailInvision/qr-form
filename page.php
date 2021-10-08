@@ -13,39 +13,39 @@ if (!empty($fName))
 {
 	$fName = prepare($fName);
 	$_SESSION["fName"] = $fName;
+	$fNameFontSize = get_font_size($fName);
 } else
 	{
-		$answer['result'] = false;
-		$answer['errors']['firstName'] = 'Firstname error';
+
 	} 
 
 if (!empty($lName))
 {
 	$lName = prepare($lName);
 	$_SESSION["lName"] = $lName;
+	$lNameFontSize = get_font_size($lName);
 } else 
 	{
-		$answer['result'] = false;
-		$answer['errors']['lastName'] = 'Lastname error';
+
 	}
 
 if (!empty($organisation))
 {
 	$organisation = prepare($organisation);
 	$_SESSION["organisation"] = $organisation;
+	$organisationFontSize = get_font_size($organisation);
 } else
 	{ 
-		$answer['result'] = false;
-		$answer['errors']['organization'] = 'Organization error';
+
 	}
 if (!empty($specility))
 {
 	$specility = prepare($specility);
 	$_SESSION["specility"] = $specility;
+	$specilityFontSize = get_font_size($specility);
 } else
 	{ 
-		$answer['result'] = false;
-		$answer['errors']['specility'] = 'Specility error';
+
 	}
 
 //создание html страницы для конвертации в pdf
@@ -67,7 +67,7 @@ ob_start();
 		}
 		.small-container 
 		{
-			width: 520px;
+			width: 500px;
 			min-height: 400px;
 			left: 12.5%;
 			margin: auto;                        
@@ -75,9 +75,7 @@ ob_start();
 		.main-text
 		{
 			text-align: center;
-			font-size: 28px;
 			color: #2e2483;
-			max-width: 600px;
 			word-break: break-all;
 		}
 		@page 
@@ -86,7 +84,6 @@ ob_start();
 		}
 		body
 		{	
-			/* font-family: Arial, Helvetica, sans-serif; */
 			font-family: DejaVu Sans;
 			font-style: normal;
 			font-weight: bold;
@@ -101,10 +98,10 @@ ob_start();
 <body>
 <div class="big-container">
 	<div class="small-container" style="z-index:99999;">
-		<p class="main-text"> <?= $_SESSION['fName'] ?></p>
-		<p class="main-text"> <?= $_SESSION['lName'] ?></p>
-		<p class="main-text"> <?= $_SESSION['organisation'] ?></p>
-		<p class="main-text"> <?= $_SESSION['specility'] ?></p>
+		<p class="main-text" style="font-size: <?= $fNameFontSize ?>px;"> <?= $_SESSION['fName'] ?></p>
+		<p class="main-text" style="font-size: <?= $lNameFontSize ?>px;"> <?= $_SESSION['lName'] ?></p>
+		<p class="main-text" style="font-size: <?= $organisationFontSize ?>px;"> <?= $_SESSION['organisation'] ?></p>
+		<p class="main-text" style="font-size: <?= $specilityFontSize ?>px;"> <?= $_SESSION['specility'] ?></p>
 	</div>
 </div>
 </body>

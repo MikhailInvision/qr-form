@@ -24,13 +24,7 @@ if (empty($_SESSION))
 ?>
 
 <div class="big-container">
-    <img class="picture" src="picture1.png">
-	<div class="small-container picture">
-		<div class="main-text"> <?= $_SESSION['fName'] ?></div><br>
-		<div class="main-text"> <?= $_SESSION['lName'] ?></div><br>
-		<div class="main-text"> <?= $_SESSION['organisation'] ?></div><br>
-		<div class="main-text"> <?= $_SESSION['specility'] ?></div><br>
-	</div>
+    <img class="picture" src="<?php echo ("invitations/_Conference pass " . $_SESSION['fName'] . ' ' . $_SESSION['lName'] . "_.jpg"); ?>">
 </div>
 <div class="big-container">
 <div class="medium-container" style="z-index:99999;">
