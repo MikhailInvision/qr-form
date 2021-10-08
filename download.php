@@ -10,6 +10,12 @@ if (empty($_SESSION))
 
 if ($_GET["choose"] == "jpg")
 {
+    
+    //Создание jpg файла
+
+    $pdf = "invitations/_Conference pass " . $_SESSION['fName'] . " " . $_SESSION['lName'] . "_.pdf"; 
+    $save = "invitations/_Conference pass " . $_SESSION['fName'] . " " . $_SESSION['lName'] . "_.jpg"; 
+    exec('convert -density 200 "'.$pdf.'" -colorspace RGB -resize 367 "'.$save.'"', $output, $return_var);
     file_download("invitations/_Conference pass " . $_SESSION['fName'] . " " . $_SESSION['lName'] . "_.jpg");
 } else if ($_GET["choose"] == "pdf")
         {

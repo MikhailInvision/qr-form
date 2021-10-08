@@ -13,7 +13,7 @@ if (!empty($fName))
 {
 	$fName = prepare($fName);
 	$_SESSION["fName"] = $fName;
-	$fNameFontSize = get_font_size($fName);
+	$_SESSION["fNameFontSize"] = get_font_size($fName);
 } else
 	{
 
@@ -23,7 +23,7 @@ if (!empty($lName))
 {
 	$lName = prepare($lName);
 	$_SESSION["lName"] = $lName;
-	$lNameFontSize = get_font_size($lName);
+	$_SESSION["lNameFontSize"] = get_font_size($lName);
 } else 
 	{
 
@@ -33,7 +33,7 @@ if (!empty($organisation))
 {
 	$organisation = prepare($organisation);
 	$_SESSION["organisation"] = $organisation;
-	$organisationFontSize = get_font_size($organisation);
+	$_SESSION["organisationFontSize"] = get_font_size($organisation);
 } else
 	{ 
 
@@ -42,7 +42,7 @@ if (!empty($specility))
 {
 	$specility = prepare($specility);
 	$_SESSION["specility"] = $specility;
-	$specilityFontSize = get_font_size($specility);
+	$_SESSION["specilityFontSize"] = get_font_size($specility);
 } else
 	{ 
 
@@ -98,10 +98,10 @@ ob_start();
 <body>
 <div class="big-container">
 	<div class="small-container" style="z-index:99999;">
-		<p class="main-text" style="font-size: <?= $fNameFontSize ?>px;"> <?= $_SESSION['fName'] ?></p>
-		<p class="main-text" style="font-size: <?= $lNameFontSize ?>px;"> <?= $_SESSION['lName'] ?></p>
-		<p class="main-text" style="font-size: <?= $organisationFontSize ?>px;"> <?= $_SESSION['organisation'] ?></p>
-		<p class="main-text" style="font-size: <?= $specilityFontSize ?>px;"> <?= $_SESSION['specility'] ?></p>
+		<p class="main-text" style="font-size: <?= $_SESSION["fNameFontSize"] ?>px;"> <?= $_SESSION['fName'] ?></p>
+		<p class="main-text" style="font-size: <?= $_SESSION["lNameFontSize"] ?>px;"> <?= $_SESSION['lName'] ?></p>
+		<p class="main-text" style="font-size: <?= $_SESSION["organisationFontSize"] ?>px;"> <?= $_SESSION['organisation'] ?></p>
+		<p class="main-text" style="font-size: <?= $_SESSION["specilityFontSize"] ?>px;"> <?= $_SESSION['specility'] ?></p>
 	</div>
 </div>
 </body>
@@ -115,19 +115,14 @@ $page = ob_get_clean();
 use Dompdf\Dompdf;
 $dompdf = new Dompdf();	
 $dompdf->loadHtml($page);
-$dompdf->setPaper("A4", 'portrait');
+$dompdf->setPaper(0,0, 367, 519);
 $dompdf->render();
 //$dompdf->stream("_Conference pass " . $_SESSION['fName'] . " " . $_SESSION['lName'] . "_");
 $output = $dompdf->output();
 file_put_contents("invitations/_Conference pass " . $_SESSION['fName'] . " " . $_SESSION['lName'] . "_.pdf", $output);
 
-//Создание jpg файла
-$pdf = "invitations/_Conference pass " . $_SESSION['fName'] . " " . $_SESSION['lName'] . "_.pdf"; 
-$save = "invitations/_Conference pass " . $_SESSION['fName'] . " " . $_SESSION['lName'] . "_.jpg"; 
-exec('convert -density 800 "'.$pdf.'" -colorspace RGB -resize 733 "'.$save.'"', $output, $return_var);
-
 //Запись о регистрации в excel файл
-
+/*
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
@@ -146,6 +141,6 @@ $sheet->setCellValue('F' . $registeredNumber, $_SESSION["date"]);
 
 $writer = new Xlsx($spreadsheet);
 $writer->save('reginfo/Registered.xlsx');
-
+*/
 header("Location: choose.php");
 ?>
