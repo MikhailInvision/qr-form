@@ -70,6 +70,7 @@
     .small-container 
     {
         top: 175px;
+        width: 250px;
     }
     .buttons
     {
@@ -95,6 +96,7 @@
     .small-container 
     {
         top: 220px;
+        width: 280px;
     }
     .buttons
     {
@@ -114,6 +116,7 @@
     .small-container 
     {
         top: 240px;
+        width: 325px;
     }
     .buttons
     {
@@ -128,6 +131,7 @@
     .small-container 
     {
         top: 270px;
+        width: 370px;
     }
 }
 @media (min-width:767px) {
@@ -139,6 +143,7 @@
     .small-container 
     {
         top: 410px;
+        width: 600px;
     }
     .buttons
     {

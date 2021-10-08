@@ -24,7 +24,7 @@ if (empty($_SESSION))
 ?>
 
 <div class="big-container">
-    <img    class="picture" src="picture1.png">
+    <img class="picture" src="picture1.png">
 	<div class="small-container picture">
 		<div class="main-text"> <?= $_SESSION['fName'] ?></div><br>
 		<div class="main-text"> <?= $_SESSION['lName'] ?></div><br>
