@@ -67,7 +67,7 @@ ob_start();
 		}
 		.small-container 
 		{
-			width: 600px;
+			width: 520px;
 			min-height: 400px;
 			left: 12.5%;
 			margin: auto;                        
