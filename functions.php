@@ -29,13 +29,13 @@ function get_font_size($str)
 {
   switch (mb_strlen($str))
   {
-    case (mb_strlen($str) > 60): return "21"; break;
-    case (mb_strlen($str) > 55): return "22"; break;
-    case (mb_strlen($str) > 50): return "23"; break;
-    case (mb_strlen($str) > 45): return "24"; break;
-    case (mb_strlen($str) > 40): return "25"; break;
-    case (mb_strlen($str) > 35): return "26"; break;
-    case (mb_strlen($str) > 30): return "27"; break;
+    case (mb_strlen($str) > 80): return "21"; break;
+    case (mb_strlen($str) > 75): return "22"; break;
+    case (mb_strlen($str) > 70): return "23"; break;
+    case (mb_strlen($str) > 65): return "24"; break;
+    case (mb_strlen($str) > 60): return "25"; break;
+    case (mb_strlen($str) > 55): return "26"; break;
+    case (mb_strlen($str) > 50): return "27"; break;
     default: return "28"; break;
   }
 }
