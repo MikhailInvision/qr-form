@@ -122,7 +122,7 @@ $output = $dompdf->output();
 file_put_contents("invitations/_Conference pass " . $_SESSION['fName'] . " " . $_SESSION['lName'] . "_.pdf", $output);
 
 //Запись о регистрации в excel файл
-/*
+
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
@@ -141,6 +141,6 @@ $sheet->setCellValue('F' . $registeredNumber, $_SESSION["date"]);
 
 $writer = new Xlsx($spreadsheet);
 $writer->save('reginfo/Registered.xlsx');
-*/
+
 header("Location: choose.php");
 ?>
