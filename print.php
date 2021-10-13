@@ -120,4 +120,26 @@ $dompdf->render();
 $dompdf->stream("_Conference pass " . $_SESSION['fName'] . " " . $_SESSION['lName'] . "_");
 $output = $dompdf->output();
 file_put_contents("invitations/_Conference pass " . $_SESSION['fName'] . " " . $_SESSION['lName'] . "_.pdf", $output);
+
+//Запись о регистрации в excel файл
+
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
+$spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load("reginfo/Registered.xlsx");
+$sheet = $spreadsheet->getActiveSheet();
+
+$registeredNumber = file_get_contents("reginfo/registeredcounter.txt") + 1;
+file_put_contents("reginfo/registeredcounter.txt", $registeredNumber);
+
+$sheet->setCellValue('A' . $registeredNumber, $registeredNumber);
+$sheet->setCellValue('B' . $registeredNumber, $_SESSION["fName"]);
+$sheet->setCellValue('C' . $registeredNumber, $_SESSION["lName"]);
+$sheet->setCellValue('D' . $registeredNumber, $_SESSION["organisation"]);
+$sheet->setCellValue('E' . $registeredNumber, $_SESSION["specility"]);
+$sheet->setCellValue('F' . $registeredNumber, $_SESSION["date"]);
+
+$writer = new Xlsx($spreadsheet);
+$writer->save('reginfo/Registered.xlsx');
+
 ?>
