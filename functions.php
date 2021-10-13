@@ -39,4 +39,14 @@ function get_font_size($str)
     default: return "28"; break;
   }
 }
+function get_font_size_for_print($str)
+{
+  switch (mb_strlen($str))
+  {
+    case (mb_strlen($str) > 75): return "11"; break;
+    case (mb_strlen($str) > 65): return "12"; break;
+    case (mb_strlen($str) > 55): return "13"; break;
+    default: return "14"; break;
+  }
+}
 ?>
